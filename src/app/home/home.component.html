@@ -1,0 +1,25 @@
+<div class="p-d-flex p-jc-center">
+  <div class="p-d-flex p-flex-column">
+    <h1>Worlwide News</h1>
+    <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <input type="text" pInputText (change)="onSearch(false)" [(ngModel)]="search" placeholder="Search" />
+    </span>
+  </div>
+</div>
+<div class="p-d-flex p-jc-center p-mt-5">
+  <p-progressSpinner *ngIf="_service.isLoading"></p-progressSpinner>
+  <div *ngIf="!_service.isLoading" class="p-grid p-col-11 p-mt-5">
+    <div class="p-col-12 p-md-6 p-lg-3" *ngFor="let item of list">
+      <p-card [header]="item.title" [subheader]="item.author" [style]="{width: '100%'}" styleClass="p-card-shadow">
+        <p-header [class]="'p-d-flex p-jc-center'">
+          <img alt="Card" [src]="item.urlToImage" style="max-width: 100%; height: 150px;">
+        </p-header>
+        <p>{{item.description}}</p>
+        <ng-template pTemplate="footer" class="p-jc-end">
+          <p-button (onClick)="readMore(item)" label="Read More" icon="pi pi-chevron-right"></p-button>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+</div>

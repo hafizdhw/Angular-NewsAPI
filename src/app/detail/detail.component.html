@@ -1,0 +1,25 @@
+<div class="p-d-flex p-jc-center">
+  <div class="p-col-12 p-md-10 p-lg-10">
+    <div class="p-grid p-flex-column p-text-center">
+      <div class="p-col-12 p-lg-12 p-md-12 p-text-left">
+        <p-button (onClick)="location.back()" label="Back" icon="pi pi-chevron-left"></p-button>
+      </div>
+      <div class="p-col-12 p-lg-12 p-md-12">
+        <h1>{{item.title}}</h1>
+        <h3>Author : {{item.author}}</h3>
+        <p>Publised at : {{item.publishedAt}}</p>
+      </div>
+      <div class="p-col-12 p-lg-12 p-md-12">
+        <img [src]="item.urlToImage" style="max-width: 50%;">
+      </div>
+      <div class="p-col-12 p-lg-12 p-md-12">
+        <p>
+          {{item.content}}
+        </p>
+        Source :
+        <a target="_blank" [href]="item.url">{{item.source.name}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
